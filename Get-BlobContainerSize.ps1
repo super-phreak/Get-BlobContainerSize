@@ -47,7 +47,7 @@ Get-AzStorageContainer -Context $sa.Context | % {
         Write-Host "Found $count blobs in Container $($_.Name)..."
         if($Blobs.Length -le 0) { Break;}
         $Token = $Blobs[$Blobs.Count -1].ContinuationToken;
-        $Blobs | ForEach-Object {$length = $length + $_.pLength}    
+        $Blobs | ForEach-Object {$length = $length + $_.Length}    
     } while ($Token -ne $Null)
 
     Write-Host " "
